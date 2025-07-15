@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalaciones García's</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/responsive.css" />
+</head>
+<body>
+    <!-- Componente de encabezado -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="hero">
+            <h1 class="titulo">Soluciones técnicas para tu espacio</h1>
+            <p class="subtitulo">Expertos en drywall, remodelaciones y reparaciones para empresas y hogares</p>
+            <button id="cotizarBtn" class="boton">Solicitar cotización</button>
+        </section>
+        <section class="carousel" aria-label="Servicios destacados">
+            <div class="carousel-slide active" role="group" aria-roledescription="slide" aria-label="1 de 3">
+                <picture>
+                    <source media="(min-width: 1280px)" srcset="../assets/slides/slide-1-1280.webp" />
+                    <source media="(min-width: 768px)" srcset="../assets/slides/slide-1-854.webp" />
+                    <img src="../assets/slides/slide-1-640.jpg" alt="Remodelación Corporativa" />
+                </picture>
+                <div class="carousel-content">
+                    <h2 class="carousel-title">Remodelación Corporativa</h2>
+                    <p class="carousel-description">
+                        Transformamos espacios empresariales con drywall, iluminación estratégica y acabados premium.
+                    </p>
+                    <div class="carousel-meta">
+                        <span class="carousel-status">Disponible ahora</span>
+                    </div>
+                    <div class="carousel-actions">
+                        <a href="#cotizar" class="btn-primary">Solicitar ahora</a>
+                        <button class="btn-secondary" aria-label="Agregar a favoritos">
+                            <svg width="24" height="24" fill="white">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 
+                                    5.42 4.42 3 7.5 3c1.74 0 3.41 
+                                    1.01 4.5 2.09C13.09 4.01 14.76 
+                                    3 16.5 3 19.58 3 22 5.42 22 
+                                    8.5c0 3.78-3.4 6.86-8.55 
+                                    11.54L12 21.35z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Repetir para slide-2, slide-3 -->
+        </section>
+
+    </main>
+
+    <!-- Componente de pie de página -->
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="../js/main.js"></script>
+</body>
+</html>
