@@ -40,8 +40,8 @@ body {
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 720px;
-    padding: 40px;
+    max-width: 620px;
+    padding: 30px;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 24px;
     text-align: center;
@@ -50,13 +50,13 @@ body {
 }
 
 .hero-title {
-    font-size: clamp(1.4rem, 3.5vw, 2rem); /* 🔧 Más compacto */
-    font-weight: 700;
+    font-size: clamp(0.8rem, 2.6vw, 1.4rem); /* 🔧 Más compacto */
+    font-weight: 600;
     margin-bottom: 14px;
 }
 
 .hero-subtitle {
-    font-size: clamp(0.95rem, 2vw, 1.2rem); /* 🔧 Más fino aún */
+    font-size: clamp(0.75rem, 1.8vw, 0.9rem); /* 🔧 Más fino aún */
     margin-bottom: 20px;
     line-height: 1.5;
     color: #ccc;
@@ -72,7 +72,7 @@ body {
 
 /* Testimonio o cita */
 .hero-quote {
-    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    font-size: clamp(0.7rem, 1vw, 0.8rem);
     color: #aaa;
     margin-top: 20px;
     font-style: italic;
@@ -122,7 +122,7 @@ body {
     align-items: center;
     gap: 8px;
     font-weight: bold;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
 }
 
 .nav-items {
@@ -325,7 +325,7 @@ body {
     flex-direction: column; /* 👉 Cambia a row en escritorio */
     align-items: center;
     gap: 30px;
-    max-width: 1280px;
+    max-width: 1080px;
     width: 100%;
 }
 
@@ -339,7 +339,7 @@ body {
 .carousel-slide picture,
 .carousel-slide img {
     width: 100%;
-    max-width: 700px; /* 🎯 Cambia aquí el ancho de la imagen */
+    max-width: 600px; /* 🎯 Cambia aquí el ancho de la imagen */
     object-fit: cover;
     border-radius: 24px; /* 🔧 Aquí el estilo redondeado */
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
@@ -377,6 +377,9 @@ body {
     width: fit-content;
 }
 
+/* ============================================
+    🚧 Sección Proyectos (projects.css)
+============================================ */
 
 .proyectos {
     padding: 60px 5%;
@@ -438,6 +441,10 @@ body {
     font-size: 0.9rem;
     color: #aaa;
 }
+
+/* ============================================
+    🧑‍💼 Sección Nosotros (about.css)
+============================================ */
 
 .nosotros {
     padding: 80px 5%;
@@ -510,6 +517,10 @@ body {
     text-decoration: none;
 }
 
+/* ============================================
+    ❓ Preguntas Frecuentes – FAQ (faq.css)
+============================================ */
+
 .faq {
     padding: 80px 5%;
     background-color: #121212;
@@ -558,12 +569,17 @@ body {
 }
 
 .faq-answer {
-    margin-top: 15px;
-    font-size: 1rem;
-    line-height: 1.5;
-    display: none;
+    margin-top: 10px;
     color: #ccc;
+    font-size: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 10px;
 }
+
+
+/* ============================================
+    🌟 Reseñas y testimonios (reviews.css)
+============================================ */
 
 .reseñas {
     padding: 80px 5%;

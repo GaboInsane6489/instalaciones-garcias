@@ -1,80 +1,122 @@
-// ==========================
-// 🧩 1. Importar Header y Footer
-// ==========================
-document.getElementById("header-placeholder").innerHTML = await fetch("../components/header.html").then(res => res.text());
-document.getElementById("footer-placeholder").innerHTML = await fetch("../components/footer.html").then(res => res.text());
+console.log('✅ main.js cargado');
 
 
-// ==========================
-// 📱 3. Comportamiento del menú responsive
-// ==========================
-const toggleBtn = document.querySelector('.nav-toggle');
-const navItems = document.querySelector('.nav-items');
 
-/**
-    * Activa/desactiva el menú de navegación en móviles
-*/
-toggleBtn.addEventListener('click', () => {
-    navItems.classList.toggle('active');
-});
 
-// ==========================
-// 🧩 JavaScript acordeón
-// ==========================
+(async () => {
 
-document.querySelectorAll('[data-toggle="submenu"]').forEach(item => {
-    item.addEventListener('click', e => {
-        e.preventDefault();
-        const submenu = item.nextElementSibling;
-        submenu.classList.toggle('active');
+    const lofiClick = new Audio('../assets/audio/light-clicking-perc_173bpm.wav');
+    lofiClick.volume = 0.5;
 
-        // Cierra otros submenús si quieres comportamiento exclusivo
-        document.querySelectorAll('.submenu').forEach(other => {
-            if (other !== submenu) {
-                other.classList.remove('active');
-            }
+    document.querySelectorAll('.main-nav a, .main-nav button, .main-nav [role="menu"] li').forEach(el => {
+        el.addEventListener('click', () => {
+            playClickSound();
         });
     });
-});
 
-// ==========================
-// 🎞️ Carrusel HERO: Rotación automática de slides
-// ==========================
+    function playClickSound() {
+        lofiClick.currentTime = 0;
+        lofiClick.play();
+    }
 
-let currentSlide = 0;
-const slides = document.querySelectorAll('.carousel-slide');
-const contents = document.querySelectorAll('.carousel-content');
+    // ==========================
+    // 🧩 1. Importar Header y Footer
+    // ==========================
+    document.getElementById("header-placeholder").innerHTML = await fetch("../components/header.html").then(res => res.text());
+    document.getElementById("footer-placeholder").innerHTML = await fetch("../components/footer.html").then(res => res.text());
 
-function showSlide(index) {
-    slides.forEach((s, i) => s.style.display = i === index ? 'block' : 'none');
-    contents.forEach((c, i) => c.style.display = i === index ? 'flex' : 'none');
-}
+    // ==========================
+    // 📱 3. Comportamiento del menú responsive
+    // ==========================
+    const toggleBtn = document.querySelector('.nav-toggle');
+    const navItems = document.querySelector('.nav-items');
 
-setInterval(() => {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-}, 5000); // Cambia cada 5 segundos
+    toggleBtn.addEventListener('click', () => {
+        playClickSound();
+        navItems.classList.toggle('active');
+    });
 
-// FAQ Toggle Functionality
-    document.addEventListener('DOMContentLoaded', () => {
+    // ==========================
+    // 🧩 JavaScript acordeón
+    // ==========================
+    document.querySelectorAll('[data-toggle="submenu"]').forEach(item => {
+        item.addEventListener('click', e => {
+            e.preventDefault();
+            playClickSound();
+            const submenu = item.nextElementSibling;
+            submenu.classList.toggle('active');
+
+            document.querySelectorAll('.submenu').forEach(other => {
+                if (other !== submenu) {
+                    other.classList.remove('active');
+                }
+            });
+        });
+    });
+
+    // ==========================
+    // 🎞️ Carrusel HERO
+    // ==========================
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const contents = document.querySelectorAll('.carousel-content');
+
+    function showSlide(index) {
+        slides.forEach((s, i) => s.style.display = i === index ? 'block' : 'none');
+        contents.forEach((c, i) => c.style.display = i === index ? 'flex' : 'none');
+    }
+
+    setInterval(() => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }, 5000);
+
+    // ==========================
+    // ❓ Lógica para FAQ
+    // ==========================
+    console.log('✅ JS cargado');
     const faqButtons = document.querySelectorAll('.faq-question');
+    console.log('👉 Detectados:', faqButtons.length);
 
     faqButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const answer = button.nextElementSibling;
-            const expanded = button.getAttribute('aria-expanded') === 'true';
+    button.addEventListener('click', () => {
+        playClickSound();
 
-            // Toggle aria-expanded
-            button.setAttribute('aria-expanded', !expanded);
+        const faqItem = button.parentElement;
+        const expanded = button.getAttribute('aria-expanded') === 'true';
 
-            // Toggle visibility
-            answer.style.display = expanded ? 'none' : 'block';
+        const existingAnswer = faqItem.querySelector('.faq-answer');
+        if (existingAnswer) existingAnswer.remove();
 
-            // Toggle icon
-            const icon = button.querySelector('.faq-icon');
-            if (icon) {
-                icon.textContent = expanded ? '+' : '−';
+        if (!expanded) {
+            const answerDiv = document.createElement('div');
+            answerDiv.classList.add('faq-answer');
+            const p = document.createElement('p');
+
+            const textoOriginal = button.textContent.replace(/\s+/g, ' ').trim();
+            let texto = '';
+
+            if (textoOriginal.includes('¿Qué servicios ofrece Instalaciones García')) {
+                texto = 'Ofrecemos drywall, electricidad, mantenimiento técnico y remodelaciones integrales para hogares y empresas.';
+            } else if (textoOriginal.includes('¿Cómo solicito una cotización')) {
+                texto = 'Puedes solicitarla desde el botón principal o en la sección de contacto. Respondemos en menos de 24 horas.';
+            } else if (textoOriginal.includes('¿Trabajan en todo el país')) {
+                texto = 'Sí, atendemos proyectos en Caracas, Valencia, Maracay y otras ciudades principales de Venezuela.';
+            } else {
+                texto = 'Contenido no disponible.';
             }
-        });
+
+            p.textContent = texto;
+            answerDiv.appendChild(p);
+            faqItem.appendChild(answerDiv);
+
+            button.setAttribute('aria-expanded', 'true');
+            button.querySelector('.faq-icon').textContent = '−';
+        } else {
+            button.setAttribute('aria-expanded', 'false');
+            button.querySelector('.faq-icon').textContent = '+';
+        }
     });
 });
+
+})();
