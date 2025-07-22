@@ -50,23 +50,39 @@ body {
 }
 
 .hero-title {
-    font-size: clamp(1.6rem, 4vw, 2.4rem); /* 🔧 Más compacto */
+    font-size: clamp(1.4rem, 3.5vw, 2rem); /* 🔧 Más compacto */
     font-weight: 700;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .hero-subtitle {
-    font-size: clamp(1rem, 2.5vw, 1.4rem); /* 🔧 Más sutil */
-    margin-bottom: 24px;
+    font-size: clamp(0.95rem, 2vw, 1.2rem); /* 🔧 Más fino aún */
+    margin-bottom: 20px;
     line-height: 1.5;
     color: #ccc;
+}
+
+/* Beneficios, lista u otros puntos cortos */
+.hero-benefits li {
+    font-size: clamp(0.85rem, 1.8vw, 1rem);
+    color: #bbb;
+    margin-bottom: 10px;
+    list-style: none;
+}
+
+/* Testimonio o cita */
+.hero-quote {
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    color: #aaa;
+    margin-top: 20px;
+    font-style: italic;
 }
 
 .hero-button {
     background-color: #007bff;
     color: white;
-    padding: 10px 20px; /* 🔧 Botón más pequeño */
-    font-size: 0.95rem;
+    padding: 8px 18px; /* 👌 Botón más discreto */
+    font-size: 0.875rem;
     font-weight: 600;
     border-radius: 6px;
     border: none;
@@ -77,6 +93,7 @@ body {
 .hero-button:hover {
     background-color: #0056b3;
 }
+
 
 
 /* ============================================
@@ -176,6 +193,54 @@ body {
     }
 }
 
+.nav-user-tools {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: auto;
+}
+
+.notificaciones-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.notificaciones-btn:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.notificaciones-btn img {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%);
+}
+
+.usuario-panel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.usuario-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.usuario-nombre {
+    font-size: 0.9rem;
+    color: #ccc;
+    font-weight: 500;
+}
+
 
 
 
@@ -184,51 +249,61 @@ body {
 ============================================ */
 
 .site-footer {
-    background-color: #222;
+    background-color: #0f0f0f;
+    color: #ccc;
+    padding: 40px 5% 20px;
+    font-size: 0.85rem;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 30px;
+    max-width: 1280px;
+    margin: auto;
+}
+
+.footer-column h4 {
+    font-size: 0.95rem;
     color: white;
-    padding: 40px 20px 20px;
+    margin-bottom: 12px;
 }
 
-.footer-columns {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 40px;
-}
-
-.footer-columns h4 {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-}
-
-.footer-columns ul {
+.footer-column ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
-.footer-columns li {
+.footer-column li {
     margin-bottom: 8px;
 }
 
-.footer-columns a {
-    color: #ccc;
+.footer-column a {
+    color: #aaa;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.footer-columns a:hover {
-    text-decoration: underline;
+.footer-column a:hover {
+    color: #007bff;
 }
 
 .social-icons a {
     margin-right: 10px;
-    color: #aaa;
 }
 
-.footer-bottom {
+.social-icons img {
+    width: 40px;
+    height: 40px;
+    filter: invert(80%);
+}
+
+.footer-base {
     text-align: center;
-    margin-top: 40px;
-    font-size: 0.85rem;
-    color: #999;
+    margin-top: 30px;
+    color: #666;
+    font-size: 0.75rem;
 }
 
 /* ============================================
