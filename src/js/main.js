@@ -4,34 +4,6 @@
 document.getElementById("header-placeholder").innerHTML = await fetch("../components/header.html").then(res => res.text());
 document.getElementById("footer-placeholder").innerHTML = await fetch("../components/footer.html").then(res => res.text());
 
-// ==========================
-// 🖼️ 2. Rotación de fondo en sección HERO
-// ==========================
-const heroSection = document.querySelector('.hero');
-
-const fondoImages = [
-    "../assets/fondo-hero/1.jpg",
-    "../assets/fondo-hero/2.jpg",
-    "../assets/fondo-hero/3.jpg",
-    "../assets/fondo-hero/4.jpg",
-    "../assets/fondo-hero/5.jpg"
-];
-
-let fondoIndex = 0;
-
-/**
-    * Cambia el fondo de la sección HERO de forma cíclica
-*/
-function cambiarFondo() {
-    heroSection.style.backgroundImage = `url('${fondoImages[fondoIndex]}')`;
-    fondoIndex = (fondoIndex + 1) % fondoImages.length;
-}
-
-// Inicializa el fondo al cargar
-cambiarFondo();
-
-// Cambia el fondo cada 6 segundos
-setInterval(cambiarFondo, 6000);
 
 // ==========================
 // 📱 3. Comportamiento del menú responsive
@@ -69,25 +41,40 @@ document.querySelectorAll('[data-toggle="submenu"]').forEach(item => {
 // 🎞️ Carrusel HERO: Rotación automática de slides
 // ==========================
 
-const heroSlides = document.querySelectorAll('.carousel-slide'); // Colección de slides
 let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const contents = document.querySelectorAll('.carousel-content');
 
-/**
-    * Muestra el siguiente slide en el carrusel principal
-*/
-function actualizarCarruselHero() {
-    // Oculta todos los slides
-    heroSlides.forEach(slide => slide.classList.remove('active'));
-
-    // Muestra el slide actual
-    heroSlides[currentSlide].classList.add('active');
-
-    // Prepara el índice para el siguiente ciclo
-    currentSlide = (currentSlide + 1) % heroSlides.length;
+function showSlide(index) {
+    slides.forEach((s, i) => s.style.display = i === index ? 'block' : 'none');
+    contents.forEach((c, i) => c.style.display = i === index ? 'flex' : 'none');
 }
 
-// Activa la rotación automática cada 6 segundos
-setInterval(actualizarCarruselHero, 6000);
+setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}, 5000); // Cambia cada 5 segundos
 
-// Carga el primer slide al iniciar
-actualizarCarruselHero();
+// FAQ Toggle Functionality
+    document.addEventListener('DOMContentLoaded', () => {
+    const faqButtons = document.querySelectorAll('.faq-question');
+
+    faqButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const answer = button.nextElementSibling;
+            const expanded = button.getAttribute('aria-expanded') === 'true';
+
+            // Toggle aria-expanded
+            button.setAttribute('aria-expanded', !expanded);
+
+            // Toggle visibility
+            answer.style.display = expanded ? 'none' : 'block';
+
+            // Toggle icon
+            const icon = button.querySelector('.faq-icon');
+            if (icon) {
+                icon.textContent = expanded ? '+' : '−';
+            }
+        });
+    });
+});

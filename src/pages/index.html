@@ -16,41 +16,187 @@
 
     <main>
         <section class="hero">
-            <h1 class="titulo">Soluciones técnicas para tu espacio</h1>
-            <p class="subtitulo">Expertos en drywall, remodelaciones y reparaciones para empresas y hogares</p>
-            <button id="cotizarBtn" class="boton">Solicitar cotización</button>
+            <div class="hero-content">
+                <h1 class="hero-title">Soluciones técnicas para tu espacio</h1>
+                <p class="hero-subtitle">Expertos en drywall, remodelaciones y reparaciones para empresas y hogares</p>
+                <button class="hero-button">Solicitar cotización</button>
+            </div>
         </section>
-        <section class="carousel" aria-label="Servicios destacados">
-            <div class="carousel-slide active" role="group" aria-roledescription="slide" aria-label="1 de 3">
-                <picture>
-                    <source media="(min-width: 1280px)" srcset="../assets/slides/slide-1-1280.webp" />
-                    <source media="(min-width: 768px)" srcset="../assets/slides/slide-1-854.webp" />
-                    <img src="../assets/slides/slide-1-640.jpg" alt="Remodelación Corporativa" />
-                </picture>
+
+        <section class="carousel" aria-label="Carrusel de servicios">
+            <div class="carousel-wrapper">
+
+                <!-- Slide 1 -->
+                <div class="carousel-slide">
+                    <picture>
+                        <source media="(min-width: 1280px)" srcset="../assets/slides/Carrusel2.avif" />
+                        <source media="(min-width: 768px)" srcset="../assets/slides/Carrusel2.avif" />
+                        <img src="../assets/slides/Carrusel2.avif" alt="Drywall Corporativo" />
+                    </picture>
+                </div>
                 <div class="carousel-content">
-                    <h2 class="carousel-title">Remodelación Corporativa</h2>
-                    <p class="carousel-description">
-                        Transformamos espacios empresariales con drywall, iluminación estratégica y acabados premium.
-                    </p>
-                    <div class="carousel-meta">
-                        <span class="carousel-status">Disponible ahora</span>
+                    <h2 class="carousel-title">Drywall Corporativo</h2>
+                    <p class="carousel-description">Transformamos oficinas con diseño técnico, acústica optimizada y acabados premium.</p>
+                    <a href="#cotizar" class="btn-primary">Solicitar cotización</a>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-slide">
+                    <picture>
+                        <source media="(min-width: 1280px)" srcset="../assets/slides/Carrusel3.jpg" />
+                        <source media="(min-width: 768px)" srcset="../assets/slides/Carrusel3.jpg" />
+                        <img src="../assets/slides/Carrusel3.jpg" alt="Remodelación de Interiores" />
+                    </picture>
+                </div>
+                <div class="carousel-content">
+                    <h2 class="carousel-title">Remodelación de Interiores</h2>
+                    <p class="carousel-description">Renovación inteligente para hogares modernos: iluminación, pintura y texturas.</p>
+                    <a href="#cotizar" class="btn-primary">Solicitar cotización</a>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-slide">
+                    <picture>
+                        <source media="(min-width: 1280px)" srcset="../assets/slides/Carrusel4.png" />
+                        <source media="(min-width: 768px)" srcset="../assets/slides/Carrusel4.png" />
+                        <img src="../assets/slides/Carrusel4.png" alt="Reparaciones técnicas" />
+                    </picture>
+                </div>
+                <div class="carousel-content">
+                    <h2 class="carousel-title">Reparaciones Técnicas</h2>
+                    <p class="carousel-description">Soluciones duraderas en drywall, cableado y mantenimiento estructural.</p>
+                    <a href="#cotizar" class="btn-primary">Solicitar cotización</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="proyectos" aria-label="Proyectos realizados">
+            <div class="proyectos-wrapper">
+
+                <!-- Proyecto 1 -->
+                <article class="proyecto-card">
+                    <img src="../assets/proyectos/proyecto1.jpg" alt="Remodelación de oficina bancaria" />
+                    <div class="proyecto-info">
+                        <h3 class="proyecto-titulo">Oficina Bancaria</h3>
+                        <p class="proyecto-descripcion">Instalación de drywall, iluminación estratégica y climatización para ambientes financieros modernos.</p>
+                        <span class="proyecto-status">Finalizado • Caracas</span>
                     </div>
-                    <div class="carousel-actions">
-                        <a href="#cotizar" class="btn-primary">Solicitar ahora</a>
-                        <button class="btn-secondary" aria-label="Agregar a favoritos">
-                            <svg width="24" height="24" fill="white">
-                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 
-                                    5.42 4.42 3 7.5 3c1.74 0 3.41 
-                                    1.01 4.5 2.09C13.09 4.01 14.76 
-                                    3 16.5 3 19.58 3 22 5.42 22 
-                                    8.5c0 3.78-3.4 6.86-8.55 
-                                    11.54L12 21.35z"/>
-                            </svg>
-                        </button>
+                </article>
+
+                <!-- Proyecto 2 -->
+                <article class="proyecto-card">
+                    <img src="../assets/proyectos/proyecto2.webp" alt="Centro educativo reformado" />
+                    <div class="proyecto-info">
+                        <h3 class="proyecto-titulo">Centro Educativo</h3>
+                        <p class="proyecto-descripcion">Renovación de aulas con materiales acústicos, acabados resistentes y diseño inclusivo.</p>
+                        <span class="proyecto-status">Finalizado • Valencia</span>
+                    </div>
+                </article>
+
+                <!-- Proyecto 3 -->
+                <article class="proyecto-card">
+                    <img src="../assets/proyectos/proyecto3.jpg" alt="Local comercial con vitrinas modernas" />
+                    <div class="proyecto-info">
+                        <h3 class="proyecto-titulo">Local Comercial</h3>
+                        <p class="proyecto-descripcion">Transformación estética con vitrinas iluminadas, texturas modernas y espacios funcionales.</p>
+                        <span class="proyecto-status">Finalizado • Maracay</span>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="nosotros" aria-label="Conoce la empresa">
+            <div class="nosotros-wrapper">
+
+                <!-- Imagen institucional -->
+                <div class="nosotros-imagen">
+                    <img src="../assets/proyectos/nosotros.jpg" alt="Equipo trabajando en proyecto drywall" />
+                </div>
+
+                <!-- Texto descriptivo -->
+                <div class="nosotros-info">
+                    <h2 class="nosotros-titulo">Instalaciones García</h2>
+                    <p class="nosotros-descripcion">
+                        Somos especialistas en diseño, remodelación y soluciones técnicas para espacios residenciales y corporativos. Con más de una década de experiencia, hemos transformado más de 300 proyectos en toda Venezuela.
+                    </p>
+                    <ul class="nosotros-destacados">
+                        <li>🔧 Drywall estructural y decorativo</li>
+                        <li>💡 Iluminación funcional y estética</li>
+                        <li>🏢 Reformas integrales para empresas</li>
+                    </ul>
+                    <a href="#cotizar" class="btn-primary">Solicitar cotización</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="faq" aria-label="Preguntas frecuentes">
+            <h2 class="faq-title">Preguntas frecuentes</h2>
+            <div class="faq-list">
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        ¿Qué servicios ofrece Instalaciones García's?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Ofrecemos drywall, electricidad, mantenimiento técnico y remodelaciones integrales para hogares y empresas.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        ¿Cómo solicito una cotización?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Puedes solicitarla directamente desde el botón principal o en la sección de contacto. Respondemos en menos de 24 horas.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        ¿Trabajan en todo el país?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Sí, atendemos proyectos en Caracas, Valencia, Maracay y otras ciudades principales de Venezuela.
                     </div>
                 </div>
             </div>
-            <!-- Repetir para slide-2, slide-3 -->
+        </section>
+
+        <section class="reseñas" aria-label="Reseñas de clientes">
+            <h2 class="reseñas-titulo">Lo que opinan nuestros clientes</h2>
+            <div class="reseñas-grid">
+
+                <!-- Reseña 1 -->
+                <div class="reseña-card">
+                    <div class="reseña-stars">★★★★★</div>
+                    <h3 class="reseña-servicio">Remodelación Corporativa</h3>
+                    <p class="reseña-comentario">“Un trabajo impecable, transformaron nuestra oficina con acabados premium y excelente iluminación.”</p>
+                    <span class="reseña-fecha">Hace 3 días</span>
+                </div>
+
+                <!-- Reseña 2 -->
+                <div class="reseña-card">
+                    <div class="reseña-stars">★★★★☆</div>
+                    <h3 class="reseña-servicio">Reparación Eléctrica</h3>
+                    <p class="reseña-comentario">“Servicio rápido y confiable. Solucionaron un problema que otros no pudieron.”</p>
+                    <span class="reseña-fecha">Hace 1 semana</span>
+                </div>
+
+                <!-- Reseña 3 -->
+                <div class="reseña-card">
+                    <div class="reseña-stars">★★★★★</div>
+                    <h3 class="reseña-servicio">Drywall Residencial</h3>
+                    <p class="reseña-comentario">“Excelente atención al detalle. La pared quedó perfecta y el acabado es increíble.”</p>
+                    <span class="reseña-fecha">Hace 2 semanas</span>
+                </div>
+
+            </div>
         </section>
 
     </main>
