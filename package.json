@@ -1,0 +1,41 @@
+{
+  "name": "instalaciones-garcias",
+  "version": "1.0.0",
+  "description": "API para Instalaciones García's - Servicios técnicos (electricidad, plomería, mantenimiento)",
+  "main": "backend/src/app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon backend/src/app.js",
+    "start": "node backend/src/app.js",
+    "lint": "eslint backend/src --fix",
+    "lint:check": "eslint backend/src"
+  },
+  "keywords": [
+    "api",
+    "express",
+    "mongodb",
+    "jwt",
+    "instalaciones",
+    "plomería",
+    "electricidad",
+    "mantenimiento"
+  ],
+  "author": "Gabriel González",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.17.2",
+    "morgan": "^1.10.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.33.0",
+    "nodemon": "^3.1.10"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
