@@ -7,7 +7,9 @@ import connectDB from "./config/db.js"; // ✅ conexión a Mongo centralizada
 // Importar rutas
 import userRoutes from "./routes/userRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
-import errorHandler from "./middleware/errorHandler.js";
+
+// Importar middlewares personalizados
+import errorHandler from "./middlewares/errorHandler.js";
 import notFound from "./middlewares/notFound.js";
 
 // 📌 Cargar variables de entorno
@@ -39,7 +41,7 @@ app.get("/", (_, res) => {
   res.json({ message: "Bienvenido a Instalaciones Garcia's API 🚀" });
 });
 
-// ✅ Middleware para 404
+// ✅ Middleware para rutas no encontradas (404)
 app.use(notFound);
 
 // ✅ Middleware para manejo de errores
