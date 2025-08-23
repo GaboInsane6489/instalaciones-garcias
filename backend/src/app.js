@@ -21,7 +21,12 @@ const app = express();
 // =========================
 // 🛠 Middlewares globales
 // =========================
-app.use(cors()); // Habilitar CORS para frontend
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL || "*", // en .env pondrás la URL de tu frontend
+    credentials: true,
+  })
+);
 app.use(express.json()); // Permitir JSON en body
 app.use(morgan("dev")); // Logs de requests
 
