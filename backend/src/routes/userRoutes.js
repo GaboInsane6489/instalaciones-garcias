@@ -6,13 +6,13 @@ import {
   updateUser,
   deleteUser,
 } from "../controllers/userControllers.js";
-import { verifyToken } from "../middlewares/authMiddleware.js";
+import { protect } from "../middlewares/authMiddleware.js";
 import { isAdmin } from "../middlewares/roleMiddleware.js";
 
 const router = express.Router();
 
 // 🔒 Todas requieren login
-router.use(verifyToken);
+router.use(protect);
 
 // 📌 Rutas accesibles solo para admin
 router.get("/", isAdmin, getUsers); // ver todos

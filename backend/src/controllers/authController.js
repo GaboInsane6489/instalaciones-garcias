@@ -2,6 +2,8 @@ import { registerService, loginService } from "../services/authService.js";
 
 /* =====================================================
     📌 Registro de usuario
+    - Crea siempre usuarios con rol "user"
+    - Roles especiales ("admin", "worker") se crean solo por admin
 ===================================================== */
 export const register = async (req, res) => {
   try {
@@ -13,7 +15,8 @@ export const register = async (req, res) => {
         .json({ message: "Todos los campos son requeridos" });
     }
 
-    const user = await registerService({ name, email, password });
+    // 👇 Forzamos el rol "user" en el registro
+    const user = await registerService({ name, email, password, role: "user" });
 
     res.status(201).json({
       message: "✅ Usuario registrado con éxito",

@@ -1,3 +1,4 @@
+// app.js
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
@@ -7,6 +8,7 @@ import connectDB from "./config/db.js"; // ✅ conexión a Mongo centralizada
 // Importar rutas
 import userRoutes from "./routes/userRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import jobRoutes from "./routes/jobRoutes.js";
 
 // Importar middlewares personalizados
 import errorHandler from "./middlewares/errorHandler.js";
@@ -23,7 +25,7 @@ const app = express();
 // =========================
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "*", // en .env pondrás la URL de tu frontend
+    origin: process.env.FRONTEND_URL || "*", // en .env la URL del frontend
     credentials: true,
   })
 );
@@ -40,6 +42,7 @@ connectDB(); // ✅ Ahora se conecta desde config/db.js
 // =========================
 app.use("/api/users", userRoutes); // CRUD usuarios
 app.use("/api/auth", authRoutes); // Registro y login
+app.use("/api/jobs", jobRoutes); // CRUD + filtros de trabajos
 
 // Ruta raíz (check rápido de la API)
 app.get("/", (_, res) => {

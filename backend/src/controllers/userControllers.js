@@ -8,13 +8,33 @@ import {
 
 /* =====================================================
     📌 Crear usuario (Solo admin)
+    - El admin puede asignar roles: "user", "worker" o "admin"
+    - Si el rol enviado no es válido, se asigna "user"
 ===================================================== */
 export const createUser = async (req, res, next) => {
   try {
+    // Solo admin puede crear usuarios con roles especiales
+    if (req.user.role !== "admin") {
+      return res
+        .status(403)
+        .json({ message: "Solo un admin puede crear usuarios con roles" });
+    }
+
     const { name, email, password, role } = req.body;
-    const user = await createUserService({ name, email, password, role });
+
+    // Roles permitidos en el sistema
+    const allowedRoles = ["user", "worker", "admin"];
+    const finalRole = allowedRoles.includes(role) ? role : "user";
+
+    const user = await createUserService({
+      name,
+      email,
+      password,
+      role: finalRole,
+    });
+
     res.status(201).json({
-      message: "Usuario creado correctamente",
+      message: `✅ Usuario con rol '${finalRole}' creado correctamente`,
       user,
     });
   } catch (error) {
@@ -27,6 +47,10 @@ export const createUser = async (req, res, next) => {
 ===================================================== */
 export const getUsers = async (req, res, next) => {
   try {
+    if (req.user.role !== "admin") {
+      return res.status(403).json({ message: "Acceso denegado" });
+    }
+
     const users = await getAllUsersService();
     res.json(users);
   } catch (error) {
@@ -36,6 +60,8 @@ export const getUsers = async (req, res, next) => {
 
 /* =====================================================
     📌 Obtener un usuario por ID
+    - El admin puede ver cualquier usuario
+    - Un user/worker solo puede ver su propio perfil
 ===================================================== */
 export const getUserById = async (req, res, next) => {
   try {
@@ -51,6 +77,8 @@ export const getUserById = async (req, res, next) => {
 
 /* =====================================================
     📌 Actualizar usuario
+    - Admin puede modificar a cualquier usuario
+    - Un user/worker solo puede modificar su propia cuenta
 ===================================================== */
 export const updateUser = async (req, res, next) => {
   try {
@@ -60,7 +88,7 @@ export const updateUser = async (req, res, next) => {
         .json({ message: "No puedes modificar a otros usuarios" });
     }
     const user = await updateUserService(req.params.id, req.body);
-    res.json({ message: "Usuario actualizado correctamente", user });
+    res.json({ message: "✅ Usuario actualizado correctamente", user });
   } catch (error) {
     next(error);
   }
@@ -71,8 +99,14 @@ export const updateUser = async (req, res, next) => {
 ===================================================== */
 export const deleteUser = async (req, res, next) => {
   try {
+    if (req.user.role !== "admin") {
+      return res
+        .status(403)
+        .json({ message: "Solo un admin puede eliminar usuarios" });
+    }
+
     const user = await deleteUserService(req.params.id);
-    res.json({ message: "Usuario eliminado correctamente", user });
+    res.json({ message: "✅ Usuario eliminado correctamente", user });
   } catch (error) {
     next(error);
   }
