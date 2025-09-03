@@ -10,10 +10,10 @@
 
 ## 📖 Descripción
 
-**Instalaciones Garcia's** es un sistema **full stack** desarrollado para la gestión y administración de instalaciones y servicios.  
-Incluye autenticación con JWT, control de usuarios con roles (admin/usuario), un backend robusto con **Node.js + Express + MongoDB**, y un frontend moderno con **React + Vite**.
+**Instalaciones Garcia's** es un sistema **full stack** para la gestión y administración de instalaciones y servicios.  
+Cuenta con un **backend sólido** con Node.js + Express + MongoDB y un **frontend moderno** con React + Vite + Tailwind CSS.
 
-Este proyecto forma parte de mi portafolio como **Full Stack Developer** 🚀
+Este proyecto forma parte de mi portafolio como **Full Stack Developer** ✨
 
 ---
 
@@ -31,7 +31,7 @@ Este proyecto forma parte de mi portafolio como **Full Stack Developer** 🚀
 ### Frontend
 
 - React.js (con Vite)
-- Tailwind CSS
+- Tailwind CSS (con theme personalizado)
 - Axios
 - React Router DOM
 
@@ -44,19 +44,29 @@ Este proyecto forma parte de mi portafolio como **Full Stack Developer** 🚀
 ✅ CRUD de usuarios (solo admin)  
 ✅ CRUD de instalaciones/servicios  
 ✅ Estructura modular y escalable (controllers, services, middlewares)  
-✅ Código limpio y formateado con ESLint + Prettier
+✅ Código limpio y formateado con ESLint + Prettier  
+✅ Frontend con **Tailwind configurado y paleta de colores definida**  
+✅ Diseño inspirado en **Disney+** (Navbar + Footer modernos)
+
+---
+
+## 🎨 Paleta de colores
+
+| Color          | Código    | Uso                       |
+| -------------- | --------- | ------------------------- |
+| Azul eléctrico | `#3B82F6` | Botones y enlaces activos |
+| Azul oscuro    | `#0F172A` | Navbar y Footer           |
+| Blanco         | `#FFFFFF` | Texto sobre fondo oscuro  |
+| Gris claro     | `#F1F5F9` | Fondos suaves             |
+| Verde energía  | `#22C55E` | Éxito / confirmaciones    |
+| Rojo alerta    | `#EF4444` | Errores o advertencias    |
+| Amarillo       | `#EAB308` | Avisos / destacados       |
 
 ---
 
 ## 📸 Capturas de pantalla
 
-### 🔐 Login
-
-![Login](./docs/screenshots/login.png)
-
-### 🏠 Dashboard
-
-![Dashboard](./docs/screenshots/dashboard.png)
+> (En progreso — pronto se agregarán imágenes del login, dashboard y diseño de frontend)
 
 ---
 
@@ -76,25 +86,22 @@ git clone https://github.com/GaboInsane6489/instalaciones-garcias.git
 cd instalaciones-garcias
 📦 Backend
 bash
-Copiar
-Editar
+Copiar código
 cd backend
 npm install
 npm run dev
 💻 Frontend
 bash
-Copiar
-Editar
+Copiar código
 cd frontend
 npm install
 npm run dev
-El backend corre en http://localhost:5000
-El frontend en http://localhost:5173
+➡️ El backend corre en http://localhost:5000
+➡️ El frontend en http://localhost:5173
 
 📂 Estructura del proyecto
 pgsql
-Copiar
-Editar
+Copiar código
 instalaciones-garcias/
 │── backend/
 │   ├── src/
@@ -114,7 +121,7 @@ instalaciones-garcias/
 │   └── package.json
 │
 │── docs/
-│   └── screenshots/   # aquí van imágenes para el README
+│   └── screenshots/   # capturas para el README
 │
 └── README.md
 📌 Roadmap
@@ -124,9 +131,13 @@ instalaciones-garcias/
 
  CRUD de servicios
 
+ Integración de Tailwind con tema personalizado
+
  Dashboard visual con gráficas
 
  Deploy completo en producción
+
+ Capturas y demo final
 
 👨‍💻 Autor
 Gabriel González (Gabo)
@@ -136,19 +147,4 @@ Gabriel González (Gabo)
 
 📜 Licencia
 Este proyecto está bajo la licencia MIT.
-Puedes usarlo, modificarlo y distribuirlo libremente.
-
-yaml
-Copiar
-Editar
-
----
-
-### ✅ Próximos pasos
-
-1. Crear una carpeta `docs/screenshots/` en el repo y meter capturas (login, dashboard, etc.).
-2. Agregar tus **links reales** (LinkedIn, portafolio, demo si desplegás en Render/Vercel).
-3. Personalizar los checkboxes del **Roadmap** según lo que vayas completando.
-
----
 ```
