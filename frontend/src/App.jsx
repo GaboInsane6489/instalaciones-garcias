@@ -1,35 +1,76 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import { Suspense, lazy, useEffect } from "react"; // 👈 añade useEffect aquí
+import { AnimatePresence, motion } from "framer-motion";
+import Layout from "./layouts/Layout.jsx";
 
-function App() {
-  const [count, setCount] = useState(0)
+// Lazy load páginas
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
+const Services = lazy(() => import("./pages/Services"));
+const Contact = lazy(() => import("./pages/Contact"));
+
+// Componente para animar transición de rutas
+function AnimatedRoutes() {
+  const location = useLocation();
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        {[
+          { path: "/", Element: Home },
+          { path: "/about", Element: About },
+          { path: "/services", Element: Services },
+          { path: "/contact", Element: Contact },
+        ].map(({ path, Element }) => (
+          <Route
+            key={path}
+            path={path}
+            element={
+              <Layout>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -30 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
+                  <Suspense
+                    fallback={
+                      <div className="text-center py-20">Cargando...</div>
+                    }
+                  >
+                    <Element />
+                  </Suspense>
+                </motion.div>
+              </Layout>
+            }
+          />
+        ))}
+      </Routes>
+    </AnimatePresence>
+  );
 }
 
-export default App
+// Scroll top al cambiar de ruta
+function ScrollToTop() {
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+  return null;
+}
+
+function App() {
+  return (
+    <Router>
+      <ScrollToTop />
+      <AnimatedRoutes />
+    </Router>
+  );
+}
+
+export default App;
